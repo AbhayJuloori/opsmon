@@ -1,0 +1,265 @@
+{
+  "summary": {
+    "cards": 9,
+    "avg_score": 86.67
+  },
+  "cards": [
+    {
+      "source": "alpha",
+      "metric": "active_users",
+      "score": 76.0,
+      "findings": [
+        {
+          "code": "range",
+          "severity": "high",
+          "detail": "Range violations rate 14.29%"
+        },
+        {
+          "code": "missing",
+          "severity": "high",
+          "detail": "Missingness rate 85.71%"
+        }
+      ],
+      "stats": {
+        "range": {
+          "violations": 1,
+          "rate": 0.14285714285714285
+        },
+        "missingness": {
+          "missing_rate": 0.8571428571428571,
+          "max_gap_minutes": 1440.0,
+          "nan_rate": 0.0
+        },
+        "shift": {
+          "ks_pvalue": 1.0,
+          "ks_shift": false,
+          "psi": 0.0
+        }
+      }
+    },
+    {
+      "source": "alpha",
+      "metric": "clicks",
+      "score": 88.0,
+      "findings": [
+        {
+          "code": "missing",
+          "severity": "high",
+          "detail": "Missingness rate 85.71%"
+        }
+      ],
+      "stats": {
+        "range": {
+          "violations": 0,
+          "rate": 0.0
+        },
+        "missingness": {
+          "missing_rate": 0.8571428571428571,
+          "max_gap_minutes": 1440.0,
+          "nan_rate": 0.0
+        },
+        "shift": {
+          "ks_pvalue": 1.0,
+          "ks_shift": false,
+          "psi": 0.0
+        }
+      }
+    },
+    {
+      "source": "alpha",
+      "metric": "revenue",
+      "score": 88.0,
+      "findings": [
+        {
+          "code": "missing",
+          "severity": "high",
+          "detail": "Missingness rate 85.71%"
+        }
+      ],
+      "stats": {
+        "range": {
+          "violations": 0,
+          "rate": 0.0
+        },
+        "missingness": {
+          "missing_rate": 0.8571428571428571,
+          "max_gap_minutes": 1440.0,
+          "nan_rate": 0.0
+        },
+        "shift": {
+          "ks_pvalue": 1.0,
+          "ks_shift": false,
+          "psi": 0.0
+        }
+      }
+    },
+    {
+      "source": "beta",
+      "metric": "active_users",
+      "score": 88.0,
+      "findings": [
+        {
+          "code": "missing",
+          "severity": "high",
+          "detail": "Missingness rate 85.71%"
+        }
+      ],
+      "stats": {
+        "range": {
+          "violations": 0,
+          "rate": 0.0
+        },
+        "missingness": {
+          "missing_rate": 0.8571428571428571,
+          "max_gap_minutes": 1440.0,
+          "nan_rate": 0.0
+        },
+        "shift": {
+          "ks_pvalue": 1.0,
+          "ks_shift": false,
+          "psi": 0.0
+        }
+      }
+    },
+    {
+      "source": "beta",
+      "metric": "clicks",
+      "score": 88.0,
+      "findings": [
+        {
+          "code": "missing",
+          "severity": "high",
+          "detail": "Missingness rate 85.71%"
+        }
+      ],
+      "stats": {
+        "range": {
+          "violations": 0,
+          "rate": 0.0
+        },
+        "missingness": {
+          "missing_rate": 0.8571428571428571,
+          "max_gap_minutes": 1440.0,
+          "nan_rate": 0.0
+        },
+        "shift": {
+          "ks_pvalue": 1.0,
+          "ks_shift": false,
+          "psi": 0.0
+        }
+      }
+    },
+    {
+      "source": "beta",
+      "metric": "revenue",
+      "score": 88.0,
+      "findings": [
+        {
+          "code": "missing",
+          "severity": "high",
+          "detail": "Missingness rate 85.71%"
+        }
+      ],
+      "stats": {
+        "range": {
+          "violations": 0,
+          "rate": 0.0
+        },
+        "missingness": {
+          "missing_rate": 0.8571428571428571,
+          "max_gap_minutes": 1440.0,
+          "nan_rate": 0.0
+        },
+        "shift": {
+          "ks_pvalue": 1.0,
+          "ks_shift": false,
+          "psi": 0.0
+        }
+      }
+    },
+    {
+      "source": "gamma",
+      "metric": "active_users",
+      "score": 88.0,
+      "findings": [
+        {
+          "code": "missing",
+          "severity": "high",
+          "detail": "Missingness rate 85.71%"
+        }
+      ],
+      "stats": {
+        "range": {
+          "violations": 0,
+          "rate": 0.0
+        },
+        "missingness": {
+          "missing_rate": 0.8571428571428571,
+          "max_gap_minutes": 1440.0,
+          "nan_rate": 0.0
+        },
+        "shift": {
+          "ks_pvalue": 1.0,
+          "ks_shift": false,
+          "psi": 0.0
+        }
+      }
+    },
+    {
+      "source": "gamma",
+      "metric": "clicks",
+      "score": 88.0,
+      "findings": [
+        {
+          "code": "missing",
+          "severity": "high",
+          "detail": "Missingness rate 85.71%"
+        }
+      ],
+      "stats": {
+        "range": {
+          "violations": 0,
+          "rate": 0.0
+        },
+        "missingness": {
+          "missing_rate": 0.8571428571428571,
+          "max_gap_minutes": 1440.0,
+          "nan_rate": 0.14285714285714285
+        },
+        "shift": {
+          "ks_pvalue": 1.0,
+          "ks_shift": false,
+          "psi": 0.0
+        }
+      }
+    },
+    {
+      "source": "gamma",
+      "metric": "revenue",
+      "score": 88.0,
+      "findings": [
+        {
+          "code": "missing",
+          "severity": "high",
+          "detail": "Missingness rate 85.71%"
+        }
+      ],
+      "stats": {
+        "range": {
+          "violations": 0,
+          "rate": 0.0
+        },
+        "missingness": {
+          "missing_rate": 0.8571428571428571,
+          "max_gap_minutes": 1440.0,
+          "nan_rate": 0.0
+        },
+        "shift": {
+          "ks_pvalue": 1.0,
+          "ks_shift": false,
+          "psi": 0.0
+        }
+      }
+    }
+  ]
+}
