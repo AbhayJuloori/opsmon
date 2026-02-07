@@ -7,3 +7,4 @@ dist/
 build/
 .out/
 out/
+.DS_Store
