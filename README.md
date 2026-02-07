@@ -2,7 +2,7 @@
 
 A pragmatic, extensible monitoring framework for multi-source time-series data. It detects anomalies, drift, and integrity issues that impact downstream analytics. The framework produces a **Reliability Card** per source/metric and a consolidated report for fast root-cause analysis.
 
-## Simple Explanation (For a High Schooler)
+## Explanation 
 Think of this project as a **health check system for data**.
 
 Imagine a school keeps track of daily attendance, cafeteria sales, and sports sign-ups from different systems. Sometimes the data is wrong: a day is missing, numbers jump too high, or a system quietly starts reporting different values. This project is a **watchdog** that looks at those numbers every day and says:
