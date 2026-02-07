@@ -64,6 +64,11 @@ See `configs/example.toml` for a full example.
 - `out/report.json` — Machine-readable report
 - `out/report.html` — Human-friendly Reliability Card
 
+## Example Output
+You can preview a real run here:
+- `examples/report.json`
+- `examples/report.html`
+
 ## Notes
 - The framework expects a **long-form** dataset with columns:
   `timestamp, source, metric, value`.

@@ -2,7 +2,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
-import tomllib
+
+try:
+    import tomllib  # py3.11+
+except ModuleNotFoundError:  # pragma: no cover
+    import tomli as tomllib  # py3.10 and below
 
 
 @dataclass
