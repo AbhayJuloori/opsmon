@@ -1,0 +1,38 @@
+[data]
+timestamp_col = "timestamp"
+source_col = "source"
+metric_col = "metric"
+value_col = "value"
+
+[metrics.revenue]
+range.min = 0
+range.max = 10000
+baseline_days = 30
+recent_days = 7
+psi_bins = 10
+ks_alpha = 0.05
+missingness_threshold = 0.02
+max_gap_minutes = 120
+monotonic = false
+
+[metrics.clicks]
+range.min = 0
+range.max = 50000
+baseline_days = 30
+recent_days = 7
+psi_bins = 10
+ks_alpha = 0.05
+missingness_threshold = 0.02
+max_gap_minutes = 120
+monotonic = false
+
+[metrics.active_users]
+range.min = 0
+range.max = 200000
+baseline_days = 30
+recent_days = 7
+psi_bins = 10
+ks_alpha = 0.05
+missingness_threshold = 0.02
+max_gap_minutes = 120
+monotonic = false
