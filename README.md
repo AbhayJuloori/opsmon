@@ -1,78 +1,81 @@
-# Operational Monitoring & Data Reliability Framework (opsmon)
+# opsmon: Operational Monitoring & Data Reliability
 
-A pragmatic, extensible monitoring framework for multi-source time-series data. It detects anomalies, drift, and integrity issues that impact downstream analytics. The framework produces a **Reliability Card** per source/metric and a consolidated report for fast root-cause analysis.
+`opsmon` is a lightweight monitoring framework for multi-source time-series data. It focuses on the kinds of failures that quietly break downstream analytics: missing values, range violations, drift, duplicate timestamps, abnormal jumps, and other integrity issues.
 
-## Explanation 
-Think of this project as a **health check system for data**.
+Instead of returning only a raw list of failed checks, the framework produces a **Reliability Card** per source and metric plus machine-readable JSON output for automation.
 
-Imagine a school keeps track of daily attendance, cafeteria sales, and sports sign-ups from different systems. Sometimes the data is wrong: a day is missing, numbers jump too high, or a system quietly starts reporting different values. This project is a **watchdog** that looks at those numbers every day and says:
+## Why this project exists
 
-- "Something is missing."
-- "This looks very different than usual."
-- "These numbers are too big/small to be real."
-- "A system is repeating the same timestamp."
+Most teams monitor infrastructure before they monitor the data itself. A pipeline can stay green while a source starts dropping rows, drifting away from historical behavior, or violating business rules. `opsmon` is designed to catch those data-quality failures early and make the root cause visible.
 
-It then gives each data source a **reliability score** (0–100) and a short list of **what went wrong**.
+## What it checks
 
-### Why it’s useful
-People make decisions based on data—budgets, forecasts, performance reports. If the data is broken, those decisions are wrong. This project helps:
-- Catch problems early (before bad data is used)
-- Build trust in reports
-- Find the root cause faster (it tells you *why* a score is low)
-
-In one sentence: It’s a report card for data quality.
-
-## Key Features
-- **Range checks** and business-rule thresholds
-- **Missingness diagnostics** (rate, streaks, and gaps)
-- **Distribution shift** detection via KS test and PSI
+- **Range and business-rule checks** for impossible or out-of-bounds values
+- **Missingness diagnostics** including rates, streaks, and timestamp gaps
+- **Distribution shift** detection using KS tests and PSI
 - **Drift checks** between baseline and recent windows
-- **Integrity checks** (duplicates, monotonicity, timestamp gaps)
-- **Reliability Card** scoring with root-cause breadcrumbs
-- **JSON + HTML reports** for quick review or downstream automation
+- **Integrity checks** for duplicates, monotonicity failures, and repeated timestamps
+- **Reliability scoring** with short explanations of what drove the score down
 
-## Project Layout
-```
-operational-monitoring-framework/
-  src/opsmon/              # Framework core
-  configs/                 # Example configs
-  data/                    # Sample data
-  scripts/                 # Helpers (generate data)
-  tests/                   # Placeholder for unit tests
-```
+## What you get
+
+- `out/report.json` for machine-readable monitoring output
+- `out/report.html` for a human-friendly Reliability Card
+- Per-source and per-metric summaries that make it easier to triage problems quickly
 
 ## Quickstart
-1. Install locally:
-```
+
+### 1. Install
+
+```bash
 pip install -e .
 ```
 
-2. Generate sample data:
-```
+### 2. Generate sample data
+
+```bash
 python scripts/generate_sample_data.py
 ```
 
-3. Run monitoring:
-```
+### 3. Run monitoring
+
+```bash
 opsmon monitor --input data/sample_timeseries.csv --config configs/example.toml --outdir out
 ```
 
-## Configuration (TOML)
-See `configs/example.toml` for a full example.
+## Configuration
 
-## Output
-- `out/report.json` — Machine-readable report
-- `out/report.html` — Human-friendly Reliability Card
+`opsmon` expects a long-form dataset with columns like:
 
-## Example Output
-You can preview a real run here:
-- `examples/report.json`
-- `examples/report.html`
+```text
+timestamp, source, metric, value
+```
 
-## Notes
-- The framework expects a **long-form** dataset with columns:
-  `timestamp, source, metric, value`.
-- You can add new checks by extending `opsmon/checks.py` and wiring them into `opsmon/runner.py`.
+See `configs/example.toml` for a complete configuration example, including thresholds, drift settings, and enabled checks.
+
+## Project layout
+
+```text
+opsmon/
+├── src/opsmon/    # Framework core
+├── configs/       # Example configurations
+├── data/          # Sample data
+├── scripts/       # Sample-data generator and helpers
+└── tests/         # Test suite
+```
+
+## Extending the framework
+
+You can add new checks by extending the core monitoring logic in `src/opsmon/` and wiring those checks into the runner pipeline. The reporting layer is designed to keep both the machine-readable output and the Reliability Card aligned.
+
+## Why it is useful in practice
+
+This project is aimed at the layer between raw ingestion and downstream reporting or modeling. It helps teams:
+
+- catch silent data failures before they affect dashboards or forecasts
+- build trust in downstream analytics
+- give operators a short explanation of what failed instead of a wall of raw metrics
 
 ## License
+
 MIT
